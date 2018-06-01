@@ -57,6 +57,7 @@ public class MaxPointsOnALine {
 		return result;
 	}
 
+	
 	//Greatest Common Divisor 最大公约数
 	private int calculateGCD(int a, int b) {
 		return b == 0 ? a : calculateGCD(b, a % b);
