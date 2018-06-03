@@ -22,11 +22,6 @@ package dataStructure.StringAndArray.TwoPointers;
  *
  */
 public class SortColors {
-
-    /**
-     * @param nums: A list of integer which is 0, 1 or 2 
-     * @return: nothing
-     */
     public void sortColors(int[] nums) {
         if(nums == null || nums.length <2){
             return;
@@ -59,5 +54,49 @@ public class SortColors {
 	public static void main(String[] args) {
 
 	}
+	
+}
 
+//Straight forward solution: a two-pass algorithm using counting sort.
+class Solution {
+    public void sortColors(int[] nums) {
+        if(nums == null || nums.length <2)
+            return;
+        int red=0, white=0, blue=0;
+        for(int i : nums){
+            switch(i){
+                case 0:
+                    red++;
+                    break;
+                case 1:
+                    white++;
+                    break;
+                default:
+                    blue++;
+                    break;              
+            }
+        }
+        int p=-1;
+        if(red>0) {
+        	p = red -1;
+        	assignColors(nums,0,p,0);
+        }
+          
+        if(white>0) {
+        	assignColors(nums,p+1,p+white,1);
+        	p += white;
+        }
+            
+        if(blue>0) {
+        	assignColors(nums,p+1,p+blue,2);
+        	p += blue;
+        }
+            
+    }
+    
+    private void assignColors(int[] nums, int start, int end, int color){
+        for(int i= start; i <=end; i++) {
+        	nums[i] = color;
+        }
+    }
 }
