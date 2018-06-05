@@ -15,7 +15,7 @@ If all elements in nums are smaller than k, then return nums.length
 
  *
  *
- *Follow up:  Partition into three parts.  See "Sort Colors"
+ *Follow up:  Partition into three parts.  See SortColors.java
  *
  */
 public class PartitionArray {
@@ -33,13 +33,10 @@ public class PartitionArray {
             while(left <= right && nums[right] >= k){
                 right--;
             }
-            
             if(left <= right){
-                int temp = nums[left];
-                nums[left] = nums[right];
-                nums[right] = temp;
+                swap(nums, left, right);
                 left++;
-                right++;
+                right--;
             }
         }
         
@@ -47,6 +44,12 @@ public class PartitionArray {
         
     }
     
+	private static void swap(int[] nums, int i, int j) {
+		int temp = nums[i];
+		nums[i] = nums[j];
+		nums[j] = temp;
+	}
+	
 	public static void main(String[] args) {
 
 	}

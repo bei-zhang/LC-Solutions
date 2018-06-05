@@ -14,31 +14,31 @@ package dataStructure.StringAndArray.TwoPointers;
  * You are not suppose to use the library's sort function for this problem. You
  * should do it in-place (sort numbers in the original array).
  * http://www.lintcode.com/en/problem/sort-colors/
- * 
+ * https://leetcode.com/problems/sort-colors/
  *
- * 此题实际上就是Partition Array的升级版：   原本是分成两部分， 现在是分成 三部分
+ * 此题实际上就是Partition Array (PartitionArray.java)的升级版：   原本是分成两部分， 现在是分成 三部分
  *
- *解法两种:  1) 用两次Partition Array        2) 3个指针 
+ *三种解法:  1) 用两次Partition Array   2) two pass with counting sort     3) 3个指针       
  *
  */
 public class SortColors {
+	//Best solution: just one pass - 3 pointers solution
     public void sortColors(int[] nums) {
-        if(nums == null || nums.length <2){
+        if(nums == null || nums.length <2)
             return;
-        }
         
         int left =0, right = nums.length-1;
-        int i =0; //第三个指针来判断中间的数，然后往左右两边swap
-        while(i <= right){
-            if(nums[i] == 0){
-                swap(nums,left, i);
+        int curr =0; //第三个指针来判断中间的数，然后往左右两边swap
+        while(curr <= right){
+            if(nums[curr] == 0){
+                swap(nums,left, curr);
                 left++;
-                i++;
-            }else if(nums[i] == 1){
-                i++;
+                curr++;
+            }else if(nums[curr] == 2){
+                swap(nums,curr,right);
+                right--;  
             }else{
-                swap(nums,i,right);
-                right--;
+                curr++;
             }
         }
         
@@ -50,15 +50,10 @@ public class SortColors {
         nums[j] = temp;
     }
 	
-    
-	public static void main(String[] args) {
-
-	}
-	
 }
 
 //Straight forward solution: a two-pass algorithm using counting sort.
-class Solution {
+class Solution2 {
     public void sortColors(int[] nums) {
         if(nums == null || nums.length <2)
             return;

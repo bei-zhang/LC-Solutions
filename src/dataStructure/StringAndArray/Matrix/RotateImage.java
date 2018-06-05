@@ -1,4 +1,4 @@
-package dataStructure.StringAndArray;
+package dataStructure.StringAndArray.Matrix;
 
 /**
  * LeetCode #48, CTCI 1.6
