@@ -11,7 +11,7 @@ import java.util.Map;
  * http://www.lintcode.com/en/problem/letter-combinations-of-a-phone-number/
  * http://www.jiuzhang.com/solution/letter-combinations-of-a-phone-number/
  * 
- * Expedia interview question (I got this on 8/31/2017 with Expedia Global Payment team)
+ * Expedia interview question (I got this in 2017 with Expedia Global Payment team)
  *
  *
  *

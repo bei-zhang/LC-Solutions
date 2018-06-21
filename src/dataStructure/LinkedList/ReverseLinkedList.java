@@ -34,29 +34,3 @@ public class ReverseLinkedList {
 }
 
 
-
-
-class ListNode {
-	int val;
-	ListNode next;
-
-	ListNode(int x) {
-		val = x;
-	}
-	
-	
-	//以下只是为了自己本地测试方便
-	@Override
-    public String toString() {
-		return printForward();
-		
-    }
-	public String printForward() {
-		if (next != null) {
-			return val + "->" + next.printForward();
-		} else {
-			return ((Integer) val).toString();
-		}
-	}
-	
-}

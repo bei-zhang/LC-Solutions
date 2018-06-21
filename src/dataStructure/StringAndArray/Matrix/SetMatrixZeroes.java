@@ -1,6 +1,13 @@
 package dataStructure.StringAndArray.Matrix;
 
-//Do it in place
+/**
+ * Given a m x n matrix, if an element is 0, set its entire row and column to 0. Do it in-place.
+ * 
+ * https://leetcode.com/problems/set-matrix-zeroes/
+ * 
+ *
+ * 
+ */
 public class SetMatrixZeroes {
 	
 	//Best solution:   O(m*n) Time,   O(1) Space

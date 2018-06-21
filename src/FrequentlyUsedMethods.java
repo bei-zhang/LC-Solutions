@@ -125,7 +125,7 @@ public class FrequentlyUsedMethods {
 		//sort array
 		Integer[] intArr = new Integer[8];
 		Arrays.sort(intArr, Collections.reverseOrder());
-		Arrays.asList(intArr);
+		Arrays.asList(intArr); //convert Array to List
 	
 		
 	    
