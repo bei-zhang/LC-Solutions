@@ -1,13 +1,12 @@
 package algorithm.BinarySearch;
 
 /**
- * http://www.lintcode.com/en/problem/sqrtx/
  * http://www.jiuzhang.com/solution/sqrtx
+ * https://leetcode.com/problems/sqrtx
  * 
  *
  */
 public class Sqrt {
-
 	public int sqrt(int x) {
 		long start = 1, end = x; // 注意一定要定义为long
 		while (start + 1 < end) {

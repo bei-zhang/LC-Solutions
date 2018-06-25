@@ -15,7 +15,6 @@ public class MaximumAverageSubarray {
 		     * @return the maximum average
 		     */
 		    public double maxAverage(int[] nums, int k) {
-		        // Write your code here
 		        double l = Integer.MAX_VALUE, r = Integer.MIN_VALUE;
 		        for (int i = 0; i < nums.length; ++i) {
 		            if (nums[i] < l)
