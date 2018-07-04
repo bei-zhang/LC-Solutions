@@ -136,14 +136,17 @@ public class FrequentlyUsedMethods {
 		//frequentlyUsedMethods();
 
 		//testingDate();
+		byte b1 = 16;
 		short a = 3;
-		int b= a;
+		int b= a, c = b1;
 		long l = 1L << 55;
 		System.out.println(l);
-		System.out.println("Integer max:  "+Integer.MAX_VALUE);
-		System.out.println("Long max:  "+Long.MAX_VALUE);
-		System.out.println("Float max: "+ Float.MAX_VALUE);
-		System.out.println("Double max: "+ Double.MAX_VALUE);
+		System.out.println("Byte max:  "+Byte.MAX_VALUE); //Byte max:  127
+		System.out.println("Short max:  "+Short.MAX_VALUE);//Short max:  32767
+		System.out.println("Integer max:  "+Integer.MAX_VALUE);//Integer max:  2147483647
+		System.out.println("Long max:  "+Long.MAX_VALUE); //Long max:  9223372036854775807
+		System.out.println("Float max: "+ Float.MAX_VALUE);//Float max: 3.4028235E38
+		System.out.println("Double max: "+ Double.MAX_VALUE);//Double max: 1.7976931348623157E308
 		
 		float f = l;
 		System.out.println(f);

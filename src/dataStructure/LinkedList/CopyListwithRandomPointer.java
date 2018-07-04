@@ -4,24 +4,20 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * 
+ * A linked list is given such that each node contains an additional random pointer 
+ *     which could point to any node in the list or null.
+ * Return a deep copy of the list.
+
  * http://www.lintcode.com/en/problem/copy-list-with-random-pointer/
  * http://www.jiuzhang.com/solutions/copy-list-with-random-pointer/
  * 
  * 
  *总结： 
- * 此题类似于CloneGraph，由于是Linked List,遍历所有nodes 比较简单，一个while 循环就可以， 
+ * 此题类似于 CloneGraph.java  由于是Linked List,遍历所有nodes 比较简单，一个while 循环就可以， 
  * 		而 CloneGraph 需要 用BFS 去遍历所有nodes
  * 
- *
  */
 public class CopyListwithRandomPointer {
-
-	/**
-	 * @param head:
-	 *            The head of linked list with a random pointer.
-	 * @return: A new head of a deep copy of the list.
-	 */
 	public RandomListNode copyRandomList(RandomListNode head) {
 		if (head == null) {
 			return null;

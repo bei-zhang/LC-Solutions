@@ -4,9 +4,8 @@ package dataStructure.StringAndArray.Matrix;
  * Given a m x n matrix, if an element is 0, set its entire row and column to 0. Do it in-place.
  * 
  * https://leetcode.com/problems/set-matrix-zeroes/
- * 
  *
- * 
+ * Interviews: Oracle(June,2018), eBay(June,2018), Expedia(2017)
  */
 public class SetMatrixZeroes {
 	
@@ -59,8 +58,7 @@ public class SetMatrixZeroes {
                 matrix[0][i] = 0;
             }
         }
-        
-        //set the first col
+        //set the first column
         if(firstColZero) {
             for(int i=0;i<m;i++){
                 matrix[i][0] = 0;
@@ -95,30 +93,73 @@ class Solution2 {
                 }
             }
         }
+        
         for(int i=0;i<m;i++){
             if(rowZero[i]){
-                setRowZeros(matrix, i);
+                for(int j=0;j<n;j++) {
+                	matrix[i][j] = 0;
+                }
             }
         }
-        for(int i=0;i<n;i++){
-            if(colZero[i]){
-                setColZeros(matrix, i);
+        for(int j=0;j<n;j++) {
+            if(colZero[j]){
+            	for(int i=0;i<m;i++){
+            		matrix[i][j] = 0;
+                }
             }
         }
         
     }
-    
-    private void setRowZeros(int[][] matrix, int row){
-        for(int i=0;i<matrix[0].length;i++){
-            matrix[row][i] = 0;
-        }
-    }
-    
-    private void setColZeros(int[][] matrix, int col){
-        for(int i=0;i<matrix.length;i++){
-            matrix[i][col] = 0;
-        }
-    }
-    
 }
 
+
+//在 Solution2 的基础上 optimize 第一个 for loop  
+//O(m*n) Time,      O(m + n) Space
+class Solution3 {
+    public void setZeroes(int[][] matrix) {
+        if(matrix == null || matrix.length == 0 || matrix[0].length ==0){
+            return;
+        }
+        int m = matrix.length, n = matrix[0].length;
+        boolean[] rowZero = new boolean[m];
+        boolean[] colZero = new boolean[n];
+    ////////START - ONLY difference from solution2 ////////////
+       //把 Solution2中的 第一个 for loop 写两次， 分别判断 row 和 column
+        //这样如果Matrix 左上角 0 比较多的话， 不用scan 整个matrix 便可以提前结束
+        //worst case 如果 Matrix 右下角 0 比较多， 那么 总共可能需要scan 整个matrix 一遍多 
+		for (int i = 0; i < m; i++) {
+			for (int j = 0; j < n; j++) {
+				if (matrix[i][j] == 0) {
+					rowZero[i] = true;
+					break;
+				}
+			}
+		}
+
+		for (int j = 0; j < n; j++) {
+			for (int i = 0; i < m; i++) {
+				if (matrix[i][j] == 0) {
+					colZero[j] = true;
+					break;
+				}
+			}
+		} 
+   ////////END - ONLY difference from solution2 ////////////
+		
+        for(int i=0;i<m;i++){
+            if(rowZero[i]){
+                for(int j=0;j<n;j++) {
+                	matrix[i][j] = 0;
+                }
+            }
+        }
+        for(int j=0;j<n;j++) {
+            if(colZero[j]){
+            	for(int i=0;i<m;i++){
+            		matrix[i][j] = 0;
+                }
+            }
+        }
+        
+    }
+}

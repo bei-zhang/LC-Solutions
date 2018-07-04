@@ -16,26 +16,18 @@ import java.util.Stack;
  */
 public class BinaryTreePostorderTraversal {
 	
-	class TreeNode {
-		 int val;
-		 TreeNode left;
-		 TreeNode right;
-		 TreeNode(int data){
-			 this.val=data;
-		 }
-	}
-
-	
 // ------------below is recursion solution-------------------------------------------------------
-	List<Integer> postorder = new ArrayList<>();
-	public List<Integer> recursiveTraversal(TreeNode root) {
-		if (root == null)
-			return null;
-		recursiveTraversal(root.left);
-		recursiveTraversal(root.right);
+    public List<Integer> postorderTraversal(TreeNode root) {
+        List<Integer> postorder = new ArrayList<Integer>();
+        helper(root, postorder);
+        return postorder;
+    }
+    private void helper(TreeNode root, List<Integer> postorder){
+        if (root == null) return;
+		helper(root.left, postorder);
+		helper(root.right,postorder);
 		postorder.add(root.val);
-		return postorder;
-	}
+    }
 
 /////////////Iterative solution from program creek   ////////////////
 	//Best solution so far
@@ -113,12 +105,12 @@ public class BinaryTreePostorderTraversal {
 		 */
 		public static void main(String[] args) {
 			BinaryTreePostorderTraversal postOrderTraversal=new BinaryTreePostorderTraversal();
-			TreeNode root=postOrderTraversal.new TreeNode(8);
-			TreeNode node1=postOrderTraversal.new TreeNode(3);
-			TreeNode node2=postOrderTraversal.new TreeNode(12);
-			TreeNode node3=postOrderTraversal.new TreeNode(1);
-			TreeNode node4=postOrderTraversal.new TreeNode(7);
-			TreeNode node5=postOrderTraversal.new TreeNode(10);
+			TreeNode root=new TreeNode(8);
+			TreeNode node1=new TreeNode(3);
+			TreeNode node2=new TreeNode(12);
+			TreeNode node3=new TreeNode(1);
+			TreeNode node4=new TreeNode(7);
+			TreeNode node5=new TreeNode(10);
 			root.left=node1; root.right=node2;
 			node1.left=node3; node1.right=node4;
 			node2.left=node5;

@@ -19,23 +19,25 @@ import common.TreeNode;
  * http://bangbingsyb.blogspot.com/2014/11/leetcode-binary-tree-level-order.html
  *
  *
- * similar question: BinaryTreeSerialization.java
+ * similar questions: 
+ * 1. BinaryTreeSerialization.java
+ * 2. BinaryTreeLevelOrderTraversalII.java   -- bottom-up level order traversal
+ * 
  * 
  */
 public class BinaryTreeLevelOrderTraversal {
     // BFS solution is recommended.  (iterative)
     public List<List<Integer>> binaryTreeLevelOrderTraversal(TreeNode root) {
     	List<List<Integer>> result = new ArrayList<>();
-    	if(root == null){
+    	if(root == null)
     		return result;
-    	}
     	
     	//Standard BFS algorithm template
     	Queue<TreeNode> queue = new LinkedList<>();
     	queue.offer(root);
     	while(!queue.isEmpty()){
     		ArrayList<Integer> level = new ArrayList<>();
-    		//面试时有犯错，此行绝对不能省， 不能放进for loop 去判断 for(int i=0;i<queue.size();i++){
+    		//面试时有犯错，下面这行绝对不能省， 因为 queue 一直在变化，所以不能放进for loop 去判断 for(int i=0;i<queue.size();i++){
     		int size = queue.size(); 
     		for(int i=0;i<size;i++){
     			TreeNode head = queue.poll();

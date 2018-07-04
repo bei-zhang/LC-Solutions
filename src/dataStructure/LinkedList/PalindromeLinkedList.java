@@ -1,15 +1,12 @@
 package dataStructure.LinkedList;
 
 /**
- * 
  * https://leetcode.com/problems/palindrome-linked-list/
- * 
  * 此题很全面，需要实现  findMiddle of LinkedList, 并且要 reverse LinkedList
  * 
  * There are many solutions if space can be O(n).
  * e.g. Save the value of each node to Stack while finding the middle node of LinkedList.
  *     And then pop the value from Stack and compare them starting from the head.
- * 
  * 
  * 
  */

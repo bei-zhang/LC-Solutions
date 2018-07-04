@@ -4,7 +4,7 @@ package algorithm.DynamicProgramming;
  * https://leetcode.com/problems/best-time-to-buy-and-sell-stock/#/description
  * http://www.jiuzhang.com/solution/best-time-to-buy-and-sell-stock/
  * 
- *
+ * Similar problem:  MaximumSubarray.java
  */
 public class BestTimeToBuyAndSellStock {
 	// time complexity: O(n)    (recommended)

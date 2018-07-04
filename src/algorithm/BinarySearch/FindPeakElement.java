@@ -13,8 +13,8 @@ public class FindPeakElement {
 	/**
 	 * Recommended solution
 	 * Iterative Binary Search
-	 * Time complexity : O(logn). We traverse the nums array of size n once only.
-	 * Space complexity : O(1). Constant extra space is used. 
+	 * Time complexity : O(logn)
+	 * Space complexity : O(1)
 	 *
 	 */
 	public class Solution {

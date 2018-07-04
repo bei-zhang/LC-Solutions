@@ -18,13 +18,11 @@ import common.UndirectedGraphNode;
  * http://www.jiuzhang.com/solutions/clone-graph/
  * 
  *
+ * 类似题： CopyListwithRandomPointer.java
+ * 
  */
 public class CloneGraph {
 
-    /**
-     * @param node: A undirected graph node
-     * @return: A undirected graph node
-     */
     public UndirectedGraphNode cloneGraph(UndirectedGraphNode node) {
         if(node == null){
             return null;

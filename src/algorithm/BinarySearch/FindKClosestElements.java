@@ -9,7 +9,8 @@ import java.util.List;
  *
  */
 public class FindKClosestElements {
-    //Best solution:  Time complexity is O(logn + k).  Space complexity is O(1)
+	
+    //Best solution:  Time complexity is O(logn + k).  Extra Space is O(1)
     class Solution {
         public List<Integer> findClosestElements(int[] arr, int k, int x) {
             List<Integer> result = new ArrayList<>();
@@ -26,7 +27,9 @@ public class FindKClosestElements {
         		}else {  		
         			j++;
         		}
-        	}        
+        	}      
+        	
+        	//Note: does not include i and j 
         	for(int p= i+1; p<j;p++){
                 result.add(arr[p]);
             }

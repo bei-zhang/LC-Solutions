@@ -14,6 +14,8 @@ import java.util.Set;
  * http://www.lintcode.com/en/problem/top-k-largest-numbers-ii/
  * 
  * 此题关键是使用  PriorityQueue (heap)
+ * 
+ * Similar problems: KthLargestElement.java, 
  */
 public class TopKLargestNumbersII {
     private int maxSize;
@@ -21,7 +23,7 @@ public class TopKLargestNumbersII {
     
     public TopKLargestNumbersII(int k) {
         this.maxSize = k;
-        this.minHeap = new PriorityQueue<Integer>();
+        this.minHeap = new PriorityQueue<>();
     }
 
     public void add(int num) {

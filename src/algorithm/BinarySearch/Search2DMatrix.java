@@ -10,19 +10,49 @@ package algorithm.BinarySearch;
  * 
  * https://www.lintcode.com/en/problem/search-a-2d-matrix/
  * 
- *
+ * Follow up: Search2DMatrixII.java
  */
 public class Search2DMatrix {
-	
-	// Binary Search Twice
-	public class Solution2 {
-	    /**
-	     * @param matrix, a list of lists of integers
-	     * @param target, an integer
-	     * @return a boolean, indicate whether matrix contains target
-	     */
+	//Best Solution: Binary Search once
+	//思路: Don't treat it as a 2D matrix, just treat it as a sorted list
+	//m * n matrix convert to an array => matrix[x][y] => a[x * n + y]
+	//an array convert to m * n matrix => a[x] =>matrix[x / n][x % n];
+	//Time:O(log(m*n))
+	public class Solution1 {
 	    public boolean searchMatrix(int[][] matrix, int target) {
-	        // write your code here
+	        if (matrix == null || matrix.length == 0 || matrix[0].length == 0) {
+	            return false;
+	        }
+	        int row = matrix.length, column = matrix[0].length;
+	        int start = 0, end = row * column - 1;
+	        while (start + 1 < end) {
+	            int mid = start + (end - start) / 2;
+	            int number = matrix[mid / column][mid % column];
+	            if (number == target) {
+	                return true;
+	            } else if (number < target) {
+	                start = mid;
+	            } else {
+	                end = mid;
+	            }
+	        }
+	        
+	        if (matrix[start / column][start % column] == target) {
+	            return true;
+	        }
+	        if (matrix[end / column][end % column] == target) {
+	            return true;
+	        }
+	        
+	        return false;
+		 }
+	}
+	
+	
+	//Simple solution: Apply Binary Search Twice
+	//Time:O(logm + logn)  = O(log(m*n)) same time complexity as solution 1
+	public class Solution2 {
+	    public boolean searchMatrix(int[][] matrix, int target) {
 	        if(matrix==null || matrix.length == 0 || matrix[0].length==0){
 	            return false;
 	        }
@@ -77,15 +107,7 @@ public class Search2DMatrix {
 	}
 	
 	
-	
-	// Just use Binary Search once
-	//see 九章答案 
-	public class Solution1 {
-		
-		
-		
-	}
-	
+
 	
 	public static void main(String[] args) {
 

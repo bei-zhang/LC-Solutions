@@ -19,8 +19,11 @@ package dataStructure.StringAndArray;
 2. Save value to array from right to left. 打破惯性思维，此题是从数组最后面往前面 来保存数值
 3. No need to check i>=0 for array A in the last step since they are in array A.
 
+
+
  */
 public class MergeSortedArray {
+	//此题assume Array A 有额外空间可容纳 B, 否则请看下面 Solution2 merge到一个新的array里
     public void mergeSortedArray(int[] A, int m, int[] B, int n) {
         if(B == null || B.length ==0){
             return;
@@ -47,14 +50,55 @@ public class MergeSortedArray {
        
         
     }
-    
-	/**
-	 * @param args
-	 */
-	public static void main(String[] args) {
-		MergeSortedArray m = new MergeSortedArray();
-	
 
-	}
+/////////////////下题是假设 A 和 B 都没有extra space，需要merge 到一个新的 array ///////////
+    /**
+     * 
+     * Real Interview question by LinkedIn in Sep.2014​
+    ​  Given two lists of numbers in descending order, 
+      write a function that returns a single list sorted in the same order.
+
+    E.g.
+
+    list1: 4, 2, 1
+    list2: 7, 6, 5, 3
+
+    Result list should be: 7,6,5,4,3,2,1
+
+    public List<Integer> merge(List<Integer> list1,List<Integer> list2){
+
+    }
+      面试总结：  need to clarify with interviewer if the given list is LinkedList or ArrayList
+     
+     MergeSortedArray.java
+     
+     */
+    class Solution2{
+        public int[] mergeSortedArray(int[] A, int[] B) {
+            if (A == null || B == null) {
+                return null;
+            }
+            
+            int[] result = new int[A.length + B.length];
+            int i = 0, j = 0, index = 0;
+            
+            while (i < A.length && j < B.length) {
+                if (A[i] < B[j]) {
+                    result[index++] = A[i++];
+                } else {
+                    result[index++] = B[j++];
+                }
+            }
+            
+            while (i < A.length) {
+                result[index++] = A[i++];
+            }
+            while (j < B.length) {
+                result[index++] = B[j++];
+            }
+            
+            return result;
+        }
+    }
 
 }

@@ -53,22 +53,21 @@ public class BinaryTreeSerialization{
 	        queue.offer(root);
 	        StringBuilder sb = new StringBuilder();
 	        sb.append("{" + root.val);
-	        while(!queue.isEmpty()){
-	            TreeNode head = queue.poll();
-	            if(head.left!=null){
-	                queue.offer(head.left);
-	                sb.append("," + head.left.val);
-	            }else{
-	                sb.append(",#");
-	            }
-	            if(head.right!=null){
-	                queue.offer(head.right);
-	                sb.append("," + head.right.val);
-	            }else{
-	                sb.append(",#");
-	            }
-	            
-	        }
+			while (!queue.isEmpty()) {
+				TreeNode head = queue.poll();
+				if (head.left != null) {
+					queue.offer(head.left);
+					sb.append("," + head.left.val);
+				} else {
+					sb.append(",#");
+				}
+				if (head.right != null) {
+					queue.offer(head.right);
+					sb.append("," + head.right.val);
+				} else {
+					sb.append(",#");
+				}
+			}
 	        sb.append("}");
 	        return sb.toString();
 	    }

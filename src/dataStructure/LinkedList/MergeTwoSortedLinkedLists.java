@@ -4,14 +4,12 @@ package dataStructure.LinkedList;
 /**
  * http://www.lintcode.com/en/problem/merge-two-sorted-lists/
  * http://www.jiuzhang.com/solutions/merge-two-sorted-lists/
- * 
+ * https://leetcode.com/problems/merge-two-sorted-lists
  *
  */
-public class MergeTwoSortedLists {
+public class MergeTwoSortedLinkedLists {
     /**
-     * @param ListNode l1 is the head of the linked list
-     * @param ListNode l2 is the head of the linked list
-     * @return: ListNode head of linked list
+     * Time: O(n+m),  n is length of L1, m is length of L2
      */
     public static ListNode mergeTwoLists(ListNode l1, ListNode l2) {
         ListNode dummyNode = new ListNode(0);

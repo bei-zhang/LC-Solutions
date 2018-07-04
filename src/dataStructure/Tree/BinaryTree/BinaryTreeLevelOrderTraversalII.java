@@ -15,7 +15,7 @@ import common.TreeNode;
  * 
  * 此题就是 BinaryTreeLevelOrderTraversal一样，唯一不同是level order traverse完后 reverse List即可
  * 
- * During a real interview (my own interview question with eBay on 8/10/2017), 
+ * (my own interview question with eBay in Aug, 2017), 
  * If we are asked to print the result, we may use Stack to save the result to avoid reverse afterwards. 
  *
  */
@@ -23,6 +23,8 @@ public class BinaryTreeLevelOrderTraversalII {
 	
     public List<List<Integer>> levelOrderBottom(TreeNode root) {
     	List<List<Integer>> result = new ArrayList<>();
+    	//If we just need to print out results, we can use Stack or just print result from end of the list.
+    	Stack<List<Integer>> stack = new Stack<>();
     	if(root == null){
     		return result;
     	}
@@ -52,8 +54,7 @@ public class BinaryTreeLevelOrderTraversalII {
     	//Collections.reverse(result); //Use this method to reverse List if allowed
     	//return result;
     	
-    	//If we just need to print out results, we can use Stack or just print result from end of the list.
-    	
+
     	//Create a new list and add items in if Collections.reverse() method cannot be used.
     	List<List<Integer>> reversedResult = new  ArrayList<>();
         for(int i=result.size()-1; i>=0; i--){
@@ -62,5 +63,9 @@ public class BinaryTreeLevelOrderTraversalII {
     	return reversedResult;        
     }
     
+    //
+    class solution2{
+    	
+    }
     
 }

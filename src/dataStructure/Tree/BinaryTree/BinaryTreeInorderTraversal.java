@@ -4,15 +4,12 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Stack;
 
-
-
 /**
  * http://www.jiuzhang.com/solutions/binary-tree-inorder-traversal/
  * 
  * in-order traversal:  Left child, root, Right child.
  *
  */
-
 public class BinaryTreeInorderTraversal {
 	
     //------------below is Iterative solution-------------------------------------------------------	    
@@ -28,7 +25,6 @@ public class BinaryTreeInorderTraversal {
 				stack.push(curr);
 				curr = curr.left;
 			}
-			
 			//2.pop up a node from stack and then checking its right node.
 			curr = stack.pop();
 			result.add(curr.val);
@@ -105,7 +101,7 @@ public class BinaryTreeInorderTraversal {
 
 
 class TreeNode {
-	 int val;
+	int val;
 	TreeNode left;
 	TreeNode right;
 

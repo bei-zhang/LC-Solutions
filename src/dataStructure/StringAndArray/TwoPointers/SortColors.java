@@ -18,7 +18,7 @@ package dataStructure.StringAndArray.TwoPointers;
  *
  * 此题实际上就是Partition Array (PartitionArray.java)的升级版：   原本是分成两部分， 现在是分成 三部分
  *
- *三种解法:  1) 用两次Partition Array   2) two pass with counting sort     3) 3个指针       
+ * 三种解法:  1) 用两次Partition Array   2) two pass with counting sort     3) 3个指针       
  *
  */
 public class SortColors {
@@ -27,18 +27,18 @@ public class SortColors {
         if(nums == null || nums.length <2)
             return;
         
-        int left =0, right = nums.length-1;
-        int curr =0; //第三个指针来判断中间的数，然后往左右两边swap
-        while(curr <= right){
-            if(nums[curr] == 0){
-                swap(nums,left, curr);
-                left++;
-                curr++;
-            }else if(nums[curr] == 2){
-                swap(nums,curr,right);
-                right--;  
+        int p0 =0, p2 = nums.length-1;
+        int p1 =0; //第三个指针来判断中间的数，然后往左右两边swap
+        while(p1 <= p2){
+            if(nums[p1] == 0){
+                swap(nums,p0, p1);
+                p0++;
+                p1++;
+            }else if(nums[p1] == 2){
+                swap(nums,p1,p2);
+                p2--;  
             }else{
-                curr++;
+                p1++;
             }
         }
         
@@ -51,6 +51,8 @@ public class SortColors {
     }
 	
 }
+
+////////////////////////////////////////////////////////////////////////////////
 
 //Straight forward solution: a two-pass algorithm using counting sort.
 class Solution2 {

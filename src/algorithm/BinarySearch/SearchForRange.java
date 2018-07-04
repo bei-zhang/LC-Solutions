@@ -14,6 +14,8 @@ return [3, 4].
  * 
  * 
  *解题思路: 实际上就是使用binary search 两次 
+ * Approach#1  Linear Search  O(n)
+ * Approach#2  two Binary Search  O(logn)
  */
 public class SearchForRange {
 

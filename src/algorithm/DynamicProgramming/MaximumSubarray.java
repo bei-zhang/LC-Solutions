@@ -18,6 +18,7 @@ import java.util.Set;
  * 
  * #1. Brute force solution:  O(n^2) - Two for-loop to calculate all sub-array sum
  * #2. DP solution: O(n) - keep track of the current minimum sub-array while looping the array
+ * #3. Divide and Conquer--max(max left subarray, max right subarray, max subarray crossing midpoint)
  * 
  * Similar problem: BestTimeToBuyAndSellStock
  */

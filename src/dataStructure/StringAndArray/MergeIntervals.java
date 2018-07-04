@@ -11,24 +11,25 @@ import java.util.List;
  * http://www.jiuzhang.com/solutions/merge-intervals/
  * http://www.programcreek.com/2012/12/leetcode-merge-intervals/
  * 
- *
+ *Companies:  LinkedIn(2017)
  */
 public class MergeIntervals {
 
+	//Time complexity : O(nlgn)
 	public List<Interval> merge(List<Interval> intervals) {
 	    List<Interval> result = new ArrayList<Interval>();
-	 
 	    if(intervals==null||intervals.size()==0)
 	        return result;
 	 
-	    Collections.sort(intervals, new Comparator<Interval>(){
+	   /* Collections.sort(intervals, new Comparator<Interval>(){
 	        public int compare(Interval i1, Interval i2){
 	            if(i1.start!=i2.start)
 	                return i1.start-i2.start;
 	            else
 	                return i1.end-i2.end;
 	        }
-	    });
+	    });*/
+	    Collections.sort(intervals, (i1, i2) -> i1.start!=i2.start ? i1.start-i2.start : i1.end-i2.end );
 	 
 	    Interval pre = intervals.get(0);
 	    for(int i=0; i<intervals.size(); i++){
@@ -37,8 +38,7 @@ public class MergeIntervals {
 	            result.add(pre);
 	            pre = curr;
 	        }else{
-	            Interval merged = new Interval(pre.start, Math.max(pre.end, curr.end));
-	            pre = merged;
+	        	pre = new Interval(pre.start, Math.max(pre.end, curr.end));
 	        }
 	    }
 	    result.add(pre);

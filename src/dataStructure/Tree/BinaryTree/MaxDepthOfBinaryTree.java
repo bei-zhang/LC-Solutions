@@ -3,6 +3,10 @@ package dataStructure.Tree.BinaryTree;
 import java.util.LinkedList;
 import java.util.Queue;
 
+/**
+ * https://leetcode.com/problems/maximum-depth-of-binary-tree/
+ *
+ */
 public class MaxDepthOfBinaryTree {
 
 	//Recursive solution

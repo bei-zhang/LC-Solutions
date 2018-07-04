@@ -24,7 +24,7 @@ public class DataStreamMedian {
 	        }
 	        int[] result = new int[nums.length];
 	        Queue<Integer> minHeap = new PriorityQueue<>();
-	        Queue<Integer> maxHeap = new PriorityQueue<>(1, Collections.reverseOrder());
+	        Queue<Integer> maxHeap = new PriorityQueue<>(Collections.reverseOrder());
 	        
 	        maxHeap.offer(nums[0]); //maxHeap always keeps the current median. 
 	        result[0] = nums[0];
