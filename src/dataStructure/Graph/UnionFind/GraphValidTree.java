@@ -12,11 +12,6 @@ public class GraphValidTree {
 
 	//UnionFind:  O(n+m) time, even for worse case,   O(n) extra space
 	public class Solution {
-	    /**
-	     * @param n an integer
-	     * @param edges a list of undirected edges
-	     * @return true if it's a valid tree, or false
-	     */
 	    public boolean validTree(int n, int[][] edges) {
 	        if(n <=0 || edges==null){
 	            return false;

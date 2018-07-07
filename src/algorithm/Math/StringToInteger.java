@@ -15,7 +15,9 @@ package algorithm.Math;
 
  *
  * Ask interview: do we need to throw NumberFormatException if it's empty or contains non-digit characters.
+ * Companies: LinkedIn (2017)
  * 
+ * 类似题: ExcelSheetColumnNumber.java
  */
 public class StringToInteger {
 	public int str2Int(String str) {

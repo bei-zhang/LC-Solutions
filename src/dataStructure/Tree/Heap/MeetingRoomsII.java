@@ -1,4 +1,4 @@
-package dataStructure.StringAndArray;
+package dataStructure.Tree.Heap;
 
 import java.util.Collections;
 import java.util.List;
@@ -31,4 +31,15 @@ public class MeetingRoomsII {
     	return count;
     }
     
+}
+
+
+/**
+ * Definition for an interval.
+ */
+class Interval {
+    int start;
+    int end;
+    Interval() { start = 0; end = 0; }
+    Interval(int s, int e) { start = s; end = e; }
 }

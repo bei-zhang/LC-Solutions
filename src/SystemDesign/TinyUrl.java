@@ -16,7 +16,6 @@ import java.util.Random;
  * 	10进制是decimal或base-10
 	16进制是hex或base-16
     32进制 是   base-32
-    
     62进制 是   base-62
  *
  */
@@ -111,8 +110,6 @@ public class TinyUrl {
     	}
     	return id;
     }
-
-	
     
     /*
      * Base62, like Base10 (decimal), Base16 (hexadecimal), is a number system. 

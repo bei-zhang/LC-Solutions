@@ -26,13 +26,12 @@ import dataStructure.Graph.UnionFind.GraphValidTree;
  * 
  *
  */
-public class GraphValidTree_BFS  extends GraphValidTree{
+public class GraphValidTree_BFS{
 
 	/**
 	 * Solution#1:  UnionFind：  see 
 	 * See {@GraphValidTree.java} for UnionFind solution
 	 */
-	
 	
 	//Solution#2:  BFS: O(n+m) time,   worse case O(n^2)
     public boolean validTree(int n, int[][] edges) {

@@ -15,7 +15,9 @@ public class UnionFind {
 			parent[i] = i;
 		}
 	}
-	//Find root parent of given element
+	
+	//Find root parent of given element.  
+	//Compression Find operation: O(1) time
 	private int find(int x){
 		if(parent[x] == x){
 			return x;
@@ -25,6 +27,7 @@ public class UnionFind {
 	}
 	
 	//Connect two sets by changing the root parent of one given element. 
+	//union operation: O(1) time
 	public void union(int a, int b){
 		int root_a = find(a);
 		int root_b = find(b);
