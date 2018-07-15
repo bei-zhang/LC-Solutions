@@ -1,8 +1,8 @@
 package algorithm.DepthFirstSearch;
 
 /**
- * http://www.lintcode.com/en/problem/word-search/
- * https://leetcode.com/problems/word-search/#/description
+ * LC# 79. Word Search
+ * https://www.jiuzhang.com/solution/word-search/
  * http://www.cnblogs.com/yuzhangcmu/p/4040418.html
  * 
  * 常考题目    (Apptio interview question I got during on-site on 9/25/2017)
@@ -22,7 +22,7 @@ public class WordSearch {
 	        for(int i=0; i<board.length; i++){
 	            for(int j=0; j<board[0].length;j++){
 	                if(board[i][j] == word.charAt(0)){//找到开头第一个字母，然后递归
-	                    if(find(board, i, j, word, 1)){ 
+	                    if(dfsSearch(board, i, j, word, 1)){ 
 	                        return true;
 	                    }
 	                }
@@ -31,8 +31,8 @@ public class WordSearch {
 	        return false;
 	    }
 	    
-	    //recursion
-	    private boolean find(char[][] board, int x, int y, String word, int pos){
+	    //DFS: 此DFS 有  K levels(k : size of  word)， 每一层有个4 branches (判断上下左右的char)
+	    private boolean dfsSearch(char[][] board, int x, int y, String word, int pos){
 	        if(pos == word.length()){
 	            return true;
 	        }
@@ -46,7 +46,7 @@ public class WordSearch {
 	            if(newX>=0 && newX<board.length && newY>=0 && newY< board[0].length 
 	                        && board[newX][newY] != '#'
 	                        && board[newX][newY] == word.charAt(pos)){
-	                if(find(board, newX, newY, word, pos+1)){
+	                if(dfsSearch(board, newX, newY, word, pos+1)){
 	                    return true;
 	                }
 	            }

@@ -16,20 +16,52 @@ import java.util.Stack;
  *
  ***********************************************
  *个人总结：
- * 此题 与 subsets 和 combination 的共同区别 是 1. 递归的方法里不需要 startIndex 这个参数， 因为permutation 可以往回走， 不过要注意不能重复加一个数
- * 此题 与 subsets 的区别还有第二点 2. 递归出口是有条件的： permutation.size() == nums.length
+ * 此题 与 Subsets 和 combination 的共同区别 是 1. 递归的方法里不需要 startIndex 这个参数， 因为permutation 可以往回走， 不过要注意不能重复加一个数
+ * 此题 与 Subsets 的区别还有第二点 2. 递归出口是有条件的： permutation.size() == nums.length
  ***********************************************
+ * 
+ * 
+ * 类似题目: PermutationsII.java
+ * 
  */
 public class Permutations {
-    public List<List<Integer>> permute(int[] nums) {
+	//来Offer的解题思路
+	class Solution {
+		public List<List<Integer>> permute(int[] nums) {
+	        List<List<Integer>> permutations = new ArrayList<>();
+	        if(nums == null || nums.length ==0)
+	            return permutations;
+	        dfs(permutations, new ArrayList<>(), nums);
+	        return permutations;
+	    }
+	    
+	    private void dfs(List<List<Integer>> permutations,List<Integer> permutation,int[] nums){
+	        if(permutation.size() == nums.length){ //base case
+	            permutations.add( new ArrayList<Integer>(permutation) );
+	            return;
+	        }
+	        for(int i=0;i<nums.length;i++){
+	        	//avoid duplicates, 此处也可以优化，采用 类似 Permutations II， 用boolean[] visited 来记录是否访问过
+	            if(permutation.contains(nums[i])){ // 
+	                continue;
+	            }
+	            permutation.add(nums[i]);//e.g. [1] - > [1,2]
+	            dfs(permutations, permutation, nums);
+	            permutation.remove(permutation.size() - 1);//backtracking  [1,2] -> [1] 
+	        }
+	        
+	    }	
+	}
+	
+////////////////////////////////////
+	//九章算法的思路
+	public List<List<Integer>> permute(int[] nums) {
         List<List<Integer>> permutations = new ArrayList<>();
-        List<Integer> permutation = new ArrayList<>();
         if(nums == null || nums.length ==0){
-            permutations.add(permutation);
             return permutations;
         }
         //Find all permutations starting with []
-        dfs(permutations, permutation, nums);
+        dfs(permutations, new ArrayList<>(), nums);
         return permutations;
     }
     // 递归三要素

@@ -36,11 +36,6 @@ import java.util.List;
  *
  */
 public class PermutationsII {
-
-	/*
-	 * @param : A list of integers
-	 * @return: A list of unique permutations
-	 */
 	public List<List<Integer>> permuteUnique(int[] nums) {
 		List<List<Integer>> permutations = new ArrayList<>();
 		List<Integer> permutation = new ArrayList<>();

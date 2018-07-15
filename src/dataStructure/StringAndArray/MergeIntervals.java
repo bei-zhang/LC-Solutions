@@ -6,6 +6,7 @@ import java.util.Comparator;
 import java.util.List;
 
 /**
+ * 56. Merge Intervals
  * http://www.lintcode.com/en/problem/merge-intervals/
  * https://leetcode.com/problems/merge-intervals/
  * http://www.jiuzhang.com/solutions/merge-intervals/

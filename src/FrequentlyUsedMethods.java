@@ -124,7 +124,9 @@ public class FrequentlyUsedMethods {
 		
 		//sort array
 		Integer[] intArr = new Integer[8];
+		//see TopKLargestNumbers.java for sort int[] array in descending order
 		Arrays.sort(intArr, Collections.reverseOrder());
+		
 		Arrays.asList(intArr); //convert Array to List
 	
 		

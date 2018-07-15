@@ -15,7 +15,7 @@ import java.util.Set;
  * 
  * 此题关键是使用  PriorityQueue (heap)
  * 
- * Similar problems: KthLargestElement.java, 
+ * Similar problems: KthLargestElement.java,  TopKLargestNumbers
  */
 public class TopKLargestNumbersII {
     private int maxSize;
@@ -36,6 +36,7 @@ public class TopKLargestNumbersII {
            minHeap.offer(num);
         }
     }
+    
     public List<Integer> topk() {
         List<Integer> result = new ArrayList<>();
         Iterator<Integer> it = minHeap.iterator();

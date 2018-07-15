@@ -131,9 +131,17 @@ public class Heap<AnyType extends Comparable<AnyType>> {
 		h.deleteMin();
 		System.out.println(h);
 
+		
+		////Heapify an array////
+		Integer[] nums = { 9, 8, 7, 9, 10, 12, 2, 3, 6, 17 };
+		Heap<Integer> minHeap = new Heap<Integer>(nums);
+		System.out.println("Heapify Array: "+ minHeap.toString());
+		
+		
+		////use heap sort to sort array////
 		Heap<Integer> tmp = new Heap<Integer>();
-		Integer[] a = { 6, 8, 7, 7, 10, 0, 2, 3, 5, 1 };
-		tmp.heapSort(a);
-		System.out.println(Arrays.toString(a));
+		Integer[] nums2 = { 6, 8, 7, 7, 10, 0, 2, 3, 5, 1 };
+		tmp.heapSort(nums2);
+		System.out.println("Sort array:"+ Arrays.toString(nums2));
 	}
 }

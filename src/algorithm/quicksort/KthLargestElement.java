@@ -13,6 +13,8 @@ import java.util.PriorityQueue;
  *  2) PriorityQueue (heap):   O(nlogk) time,  O(k) space,    适合于 TopKLargestNumbersII 这样的活数据
  *   
  *   
+ * 类似问题: TopKLargestNumbers.java  KthSmallestNumberInSortedMatrix.java
+ *   
  */
 public class KthLargestElement {
 

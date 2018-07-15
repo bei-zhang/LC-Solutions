@@ -17,10 +17,12 @@ import common.TreeNode;
  * 
  * (my own interview question with eBay in Aug, 2017), 
  * If we are asked to print the result, we may use Stack to save the result to avoid reverse afterwards. 
- *
+ * 
+ * 类似题目: BinaryTreeRightSideView -  Level Order Traversal (from root to leaf, right to left)
+ * 
  */
 public class BinaryTreeLevelOrderTraversalII {
-	
+	//BFS: Level Order Traversal (from leaf to root, left to right)
     public List<List<Integer>> levelOrderBottom(TreeNode root) {
     	List<List<Integer>> result = new ArrayList<>();
     	//If we just need to print out results, we can use Stack or just print result from end of the list.

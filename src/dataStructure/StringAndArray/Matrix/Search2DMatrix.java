@@ -1,4 +1,4 @@
-package algorithm.BinarySearch;
+package dataStructure.StringAndArray.Matrix;
 
 /**
  * 

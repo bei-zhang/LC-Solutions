@@ -7,10 +7,10 @@ import java.util.Map;
  * http://www.lintcode.com/en/problem/roman-to-integer/
  * https://leetcode.com/problems/roman-to-integer
  * 
- *
+ * 类似题目:  IntegerToRoman.java
  */
 public class RomantoInteger {
-	//Solution#1 (Recommended)  from right to left, coding is easier than from left to right
+	//Solution#1 (Recommended)  from right to left, easy to understand and coding is easier than from left to right
     public int romanToInt(String s) {
         if(s ==null || s.length() ==0){
             return 0;
@@ -25,8 +25,8 @@ public class RomantoInteger {
         hashMap.put('M',1000);
 
         int len = s.length();
-        int result = hashMap.get(s.charAt(len-1));
-        //from right to left, coding is easier than from left to right
+        int result = hashMap.get(s.charAt(len-1)); // initial from last char
+        //Note: for-loop是从倒数第二个char 开始
         for(int i=len-2;i>=0;i--){
             if(hashMap.get(s.charAt(i)) < hashMap.get(s.charAt(i+1))){
                 result -= hashMap.get(s.charAt(i));

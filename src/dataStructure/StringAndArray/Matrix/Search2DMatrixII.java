@@ -14,6 +14,8 @@ package dataStructure.StringAndArray.Matrix;
  * then the target can not in the entire column because the column is sorted too.
  *  We can rule out one row or one column each time, so the time complexity is O(m+n).
  * 
+ * 类似问题: KthSmallestNumberInSortedMatrix.java
+ * 
  */
 public class Search2DMatrixII {
 	//Best concise solution:  divide and conquer method

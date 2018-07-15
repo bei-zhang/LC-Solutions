@@ -40,4 +40,36 @@ public class PartitionEqualSubsetSum {
 	    }
 	}
 	
+	class Solution2{
+		public boolean canPartition(int[] nums) {
+	        if(nums == null || nums.length <= 1){
+	            return false;
+	        }
+	        int sum = 0 ;
+	        for(int i:nums){
+	            sum += i;
+	        }
+	        if(sum % 2 == 1){
+	            return false;
+	        }
+	        sum = sum / 2;
+	        Arrays.sort(nums);
+	        
+	        return dfs(nums,nums.length - 1, sum);
+	    }
+	    boolean dfs(int[] nums, int start, int sum){
+	        
+	        if(start < 0){
+	            return false;
+	        }
+	        // deal with result
+	        if(nums[start] == sum){
+	            return true;
+	        }
+	        if(nums[start] > sum){
+	            return false;
+	        }
+	        return dfs(nums,start - 1, sum - nums[start]) || dfs(nums,start - 1, sum);
+	    }
+	}
 }

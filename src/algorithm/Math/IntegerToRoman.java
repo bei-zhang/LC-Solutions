@@ -11,6 +11,9 @@ package algorithm.Math;
  * 
  *  Given an integer, convert it to a Roman numeral.
 	The number is guaranteed to be within the range from 1 to 3999.
+	
+	
+	类似题目:  RomantoInteger.java
  */
 public class IntegerToRoman {
     public String intToRoman(int n) {

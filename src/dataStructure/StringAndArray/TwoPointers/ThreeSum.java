@@ -2,10 +2,12 @@ package dataStructure.StringAndArray.TwoPointers;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 /**
- * 
- * Given an array S of n integers, are there elements a, b, c in S such that a + b + c = 0? Find all unique triplets in the array which gives the sum of zero.
+ * LC#15. 3Sum
+ * Given an array S of n integers, are there elements a, b, c in S such that a + b + c = 0? 
+ * Find all unique triplets in the array which gives the sum of zero.
 
  Notice
 
@@ -17,70 +19,46 @@ For example, given array S = {-1 0 1 2 -1 -4}, A solution set is:
 
 (-1, 0, 1)
 (-1, -1, 2)
-
  * 
  * http://www.lintcode.com/en/problem/3sum/
  * https://leetcode.com/problems/3sum
  * http://www.jiuzhang.com/solutions/3sum/
  * 
  *
+ * 类似题目: TwoSum, ThreeSum, FourSum
+ * 
  */
 public class ThreeSum {
+	//(recommended)Sorting + two pointers solution
+	//Time: O(n^2), Space: O(1)
+    public List<List<Integer>> threeSum(int[] nums) {
+    	List<List<Integer>>  res = new ArrayList<>();
+        if(nums ==null || nums.length <3)  return res;
+        Arrays.sort(nums); //#1. Sort the array
+        for(int i=0; i<nums.length-2;i++){
+        	if(i > 0 && nums[i] == nums[i-1]) continue; // skip duplicates
+        	int target = 0 - nums[i];
+        	int low = i+1, high = nums.length  -1; //#2. Two pointers to find target like TwoSum
+        	while(low < high){
+        		if(nums[low] + nums[high] == target){
+        			res.add(Arrays.asList(nums[i], nums[low], nums[high]));
+                    while(low < high && nums[low] == nums[low+1]) low++; // skip duplicates
+                    while(low < high && nums[high] == nums[high-1]) high--; // skip duplicates
+                    low++;
+                    high--;
+                }else if(nums[low] + nums[high] > target){
+                    high--;
+                }else{
+                    low++;
+                }
+        	}
+        }
+        
+        return res;
+    }
 
-    /**
-     * @param numbers : Give an array numbers of n integer
-     * @return : Find all unique triplets in the array which gives the sum of zero.
-     */
-    public ArrayList<ArrayList<Integer>> threeSum(int[] numbers) {
-        ArrayList<ArrayList<Integer>> results = new ArrayList<>();
-        if(numbers ==null || numbers.length <3){
-            return results;
-        }
-        //1. Sort the array 
-        Arrays.sort(numbers);
-        
-        for(int i=0; i<numbers.length-2;i++){
-            int target = - numbers[i];
-            //先找到a, 那么问题就变成twoSum -> 在剩余Array中找 两数之和为 -a (target)
-            twoSum(numbers,i+1, numbers.length -1, target, results);
-            while(i<numbers.length-2 && numbers[i] == numbers[i+1]){
-                i++;
-            }
-        }
-        
-        return results;
-    }
     
-    //Two pointers to get TwoSum in the remaining array
-    private void twoSum(int[] numbers, int start, int end, int target,
-                    ArrayList<ArrayList<Integer>> results){
-        while(start < end){
-            if(numbers[start] + numbers[end] == target){
-                ArrayList<Integer> triplet = new ArrayList<>();
-                triplet.add(-target);
-                triplet.add(numbers[start]);
-                triplet.add(numbers[end]);
-                results.add(triplet);
-                while(start < end && numbers[start] == numbers[start+1]){
-                    start++;
-                }
-                while(start < end && numbers[end] == numbers[end-1]){
-                    end--;
-                }
-                start++;
-                end--;
-            }else if(numbers[start] + numbers[end] > target){
-                end--;
-            }else{
-                start++;
-            }
-        }
-    }
-    
-	public static void main(String[] args) {
-		int a =10;
-		a*=10;
-char c ='3';
+    public static void main(String[] args) {
 
 
 	}
