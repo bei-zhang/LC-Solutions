@@ -1,1 +1,1 @@
-# leetcode-solution
+# LC-Solutions
