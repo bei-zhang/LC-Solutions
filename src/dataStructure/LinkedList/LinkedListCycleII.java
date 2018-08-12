@@ -5,14 +5,9 @@ package dataStructure.LinkedList;
  * http://www.lintcode.com/en/problem/linked-list-cycle-ii/
  * http://www.jiuzhang.com/solutions/linked-list-cycle-ii/
  * 
- * 
  *
  */
 public class LinkedListCycleII {
-	 /**
-     * @param head: The first node of linked list.
-     * @return: The node where the cycle begins. if there is no cycle, return null
-     */
     public static ListNode detectCycle(ListNode head) {  
         if(head == null || head.next == null){
             return null;

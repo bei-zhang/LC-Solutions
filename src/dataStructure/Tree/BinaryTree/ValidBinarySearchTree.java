@@ -1,5 +1,7 @@
 package dataStructure.Tree.BinaryTree;
 
+import java.util.Stack;
+
 import common.TreeNode;
 
 /**
@@ -9,7 +11,9 @@ import common.TreeNode;
  * https://www.jiuzhang.com/solutions/validate-binary-search-tree/
  * http://www.geeksforgeeks.org/a-program-to-check-if-a-binary-tree-is-bst-or-not/
  * 
-*/
+ * Companies: Expedia(2017), Microsoft(2018)
+ * 
+ */
 
 public class ValidBinarySearchTree {
 	
@@ -22,32 +26,45 @@ public class ValidBinarySearchTree {
 	 Auxiliary Space : O(1) if Function Call Stack size is not considered, otherwise O(n)
 	 */
 	class Solution1 {
-		/**
-		 * 
-	     * @param root: The root of binary tree.
-	     * @return: True if the binary tree is BST, or false
-	     */
 	    public boolean isValidBST(TreeNode root) {
 	       if(root == null)  return false; //Ask interviewer: No need this line if we consider NULL is BST. 
 	       return helper(root, Long.MIN_VALUE, Long.MAX_VALUE);
 	    }
-	    
 	    private boolean helper(TreeNode node , long low, long high){
 	    	//递归退出条件不能少，必须return true, 这里不是指整个树的根节点是否为null
 	    	//This means you reach the end of left subtree or right subtree
-	        if(node == null){ 
+	        if(node == null)
 	            return true;
-	        }
 	        
 	        //false if this node violates the upper/lower limit constraints 
-	        if(node.val<= low || node.val >= high){
+	        if(node.val<= low || node.val >= high)
 	            return false;
-	        }
+	        
 	        //otherwise check the subtrees recursively and update upper/lower limit boundary
-	        return helper(node.left,low,node.val) && helper(node.right, node.val, high);
+	        return helper(node.left, low, node.val) && helper(node.right, node.val, high);
 	    }
 
 	}
 
+	//iterative inorder traversal. 
+	class Solution2 {
+		public boolean isValidBST(TreeNode root) {
+			   if (root == null) return true;
+			   Stack<TreeNode> stack = new Stack<>();
+			   TreeNode pre = null;
+			   while (root != null || !stack.isEmpty()) {
+			      while (root != null) {
+			         stack.push(root);
+			         root = root.left;
+			      }
+			      root = stack.pop();
+			      if(pre != null && root.val <= pre.val) return false;
+			      pre = root;
+			      root = root.right;
+			   }
+			   return true;
+			}
+	}
+	
 	
 }

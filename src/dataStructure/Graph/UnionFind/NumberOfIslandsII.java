@@ -88,12 +88,8 @@ class UnionFind{
     }
     
     private int find(int x){
-        if(parent[x] <0){
-            return parent[x];
-        }
-        if(parent[x] == x){
-            return x;
-        }
+        if(parent[x] <0)  return parent[x];
+        if(parent[x] == x) return x;
         return parent[x] = find(parent[x]);
     }
     

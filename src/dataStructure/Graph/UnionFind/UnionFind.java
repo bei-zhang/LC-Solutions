@@ -19,9 +19,7 @@ public class UnionFind {
 	//Find root parent of given element.  
 	//Compression Find operation: O(1) time
 	private int find(int x){
-		if(parent[x] == x){
-			return x;
-		}
+		if(parent[x] == x)  return x;
 		//return find(parent[x]);  // not optimal solution: O(n) time
 		return parent[x] = find(parent[x]); // Compression Find: O(1) time
 	}

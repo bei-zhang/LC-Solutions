@@ -43,7 +43,7 @@ public class TopKLargestNumbersII {
         while(it.hasNext()){
             result.add(it.next());
         }
-        Collections.sort(result, Collections.reverseOrder());
+        Collections.reverse(result);
         return result;
     }
     

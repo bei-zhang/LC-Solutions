@@ -14,11 +14,6 @@ public class MergeKSortedArray {
 	// Solution#1: Heap/PriorityQueue
 	static class Solution1 {
 		 public static int[] mergeKSortedArray(int[][] arr) {
-			/* Queue<Element> minHeap = new PriorityQueue<Element>(1, new Comparator<Element>(){
-				 public int compare(Element a, Element b){
-					 return a.val - b.val;
-				 }
-			 });*/
 			 Queue<Element> minHeap = new PriorityQueue<Element>((a,b) -> a.val - b.val);
 			 int total =0;
 			 //利用一个额外数组index保存k个array的当前下标，初始为0
@@ -28,7 +23,6 @@ public class MergeKSortedArray {
 				 minHeap.offer(new Element(i, arr[i][0]));
 				 total+= arr[i].length; // get total size
 			 }
-			 
 			 int[] res = new int[total];
 			 int i=0;
 			 //2. 每次poll Heap 里面的最小数，同时将其对应的array里面的下一个元素加入到Heap
@@ -39,7 +33,6 @@ public class MergeKSortedArray {
 					 minHeap.offer(new Element(top.arrId, arr[top.arrId][index[top.arrId]]));
 				 }
 			 }
-			 
 			 return res;
 		 }
 	}

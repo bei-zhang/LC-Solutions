@@ -65,10 +65,7 @@ public class TinyUrl {
     private HashMap<Integer, String> id2url = new HashMap<Integer, String>();
     private HashMap<String, Integer> url2id = new HashMap<String, Integer>();
     
-    /**
-     * @param url a long url
-     * @return a short url starts with http://tiny.url/
-     */
+     //Shorten a long URL to a short one starts with http://tiny.url/
     public String longToShort(String url) {
     	if(url2id.containsKey(url)){
     		return "http://tiny.url/" + idToShortKey(url2id.get(url));

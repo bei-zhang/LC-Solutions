@@ -9,7 +9,9 @@ import java.util.ArrayList;
  * http://blog.csdn.net/ljiabin/article/details/45846527
  * 
  * 
- *
+ *  Backtracking + Trie
+ *  https://leetcode.com/problems/word-search-ii/discuss/59780/Java-15ms-Easiest-Solution-(100.00)
+ *  
  */
 public class WordSearchII {
 

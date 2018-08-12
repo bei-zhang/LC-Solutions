@@ -45,20 +45,20 @@ public class Trie {
         p.isEnd = true;
     }
 
-    // Returns if the word is in the trie.
+    //Return if the word is in the trie.
     public boolean search(String word) {
         TrieNode p = findLastNode(word);
         return p!=null? p.isEnd : false;
         
     }
 
-    // Returns if there is any word in the trie that starts with the given prefix.
+    //Return if there is any word in Trie that starts with given prefix.
     public boolean startsWith(String prefix) {
         TrieNode p = findLastNode(prefix);
         return p!=null;
     }
     
-    //a util method to find the last node of given word or prefix
+    //Util method to find the last node of given word or prefix
     private TrieNode findLastNode(String str){
         if(str == null){
             return null;

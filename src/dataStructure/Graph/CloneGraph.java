@@ -1,4 +1,4 @@
-package algorithm.BreadthFirstSearch;
+package dataStructure.Graph;
 
 import java.util.HashMap;
 import java.util.HashSet;
@@ -24,15 +24,16 @@ import common.UndirectedGraphNode;
 public class CloneGraph {
 
     public UndirectedGraphNode cloneGraph(UndirectedGraphNode node) {
-        if(node == null){
+        if(node == null)
             return null;
-        }
+        
         //three steps - 劝分不劝和， 能够分开一步一步来的， 就不要合并写
         
-        //1. node -> nodes    --  use BFS algorithm to traverse the graph and get all nodes.
+        //1.node -> nodes  use BFS algorithm to traverse the graph and get all nodes.
         Set<UndirectedGraphNode>  allNodes = getAllNodes(node);
         
-        //2. nodes -> new nodes  -- copy nodes, store the old->new mapping information in a HashMap
+        //2.nodes -> new nodes
+        // copy nodes, store the old->new mapping information in a HashMap
         Map<UndirectedGraphNode,UndirectedGraphNode> mapping = new HashMap<>();
         for(UndirectedGraphNode n : allNodes){
         	mapping.put(n, new UndirectedGraphNode(n.label));
@@ -53,7 +54,8 @@ public class CloneGraph {
     //Standard BFS algorithm template for graph to get all nodes
     private Set<UndirectedGraphNode> getAllNodes (UndirectedGraphNode node){
     	Queue<UndirectedGraphNode> queue = new LinkedList<>();
-    	//HashSet to save all nodes in edges to avoid duplicates (a node may get added multiple times)
+    	//HashSet to save all nodes in edges to avoid duplicates 
+    	// (a node may get added multiple times)
     	Set<UndirectedGraphNode> set = new HashSet<>();
     	queue.offer(node);
     	set.add(node);

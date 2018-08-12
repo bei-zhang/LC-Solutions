@@ -11,7 +11,6 @@ import common.UndirectedGraphNode;
 
 /**
  * 
- * LeetCode 323 - Number of Connected Components in an Undirected Graph   
  * http://www.lintcode.com/en/problem/connected-component-in-undirected-graph/
  * 
  * 1) UnionFind

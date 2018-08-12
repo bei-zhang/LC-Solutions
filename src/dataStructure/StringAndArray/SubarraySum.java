@@ -19,8 +19,8 @@ public class SubarraySum {
         ArrayList<Integer> result = new ArrayList<>();
         int sum=0;
         Map<Integer,Integer> prefixSumMap = new HashMap<>();
-        
-        prefixSumMap.put(sum, -1); // 这一步很关键, 前面0个数相加和为sum=0, index 为 -1  (用下面同样的表达式即 i+1 =0)
+        // 这一步很关键, 前面0个数相加和为sum=0, index 为 -1  (用下面同样的表达式即 i+1 =0)
+        prefixSumMap.put(sum, -1); 
         for(int i=0;i<nums.length;i++){
             sum+= nums[i];
             if(prefixSumMap.containsKey(sum)){

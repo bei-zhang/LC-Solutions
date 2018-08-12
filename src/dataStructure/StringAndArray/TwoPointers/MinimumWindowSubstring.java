@@ -9,11 +9,8 @@ package dataStructure.StringAndArray.TwoPointers;
  * 解题思路： Hash + two Pointers 
  * 先用Hash统计target里的每个字符出现的次数
  * 再用traverse source string, two pointers的思想: 一个指针指向出现的所有字符的结尾，然后用一个开头指针看看能不能将窗格变短。
- * 
- *
  */
 public class MinimumWindowSubstring {
-
 	//Time complexity: O(n),  Space complexity: O(1) 
     public String minWindow(String source, String target) {
         if(source == null || target == null || target.length() ==0
@@ -26,11 +23,9 @@ public class MinimumWindowSubstring {
         for(int i=0;i<target.length();i++){
             targetHash[target.charAt(i)]++;
         }
-        
         int targetLen = target.length();
         int left=0, count=0, minWin = Integer.MAX_VALUE;
         String minStr ="";
-        
         //start traversing source string
         for(int i=0; i<source.length() ;i++){
             if(targetHash[source.charAt(i)] >0)
@@ -47,9 +42,7 @@ public class MinimumWindowSubstring {
                 left++;
             }
         }
-       
         return minStr;
-        
     }	
     
     

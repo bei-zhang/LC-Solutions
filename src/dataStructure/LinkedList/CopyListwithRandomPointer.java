@@ -22,7 +22,8 @@ public class CopyListwithRandomPointer {
 		if (head == null) {
 			return null;
 		}
-		// 1. get the mapping for old nodes -> new nodes -- copy nodes, store the old->new mapping information in a HashMap
+		// 1. get the mapping for old nodes -> new nodes 
+		//  copy nodes, store the old->new mapping information in a HashMap
 		Map<RandomListNode, RandomListNode> mapping = getMapping(head);
 
 		// 2. old next and random -> new next and random -- copy edges

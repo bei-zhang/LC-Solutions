@@ -27,28 +27,17 @@ import java.util.Queue;
  * 
  */
 public class MergeKSortedLists {
-
 	// Solution#1: Heap/PriorityQueue
 	class Solution1 {
-		public ListNode mergeKLists(List<ListNode> lists) {
-			if (lists == null || lists.size() == 0) {
+		public ListNode mergeKLists(ListNode[] lists) {
+			if (lists == null || lists.length == 0) {
 				return null;
 			}
-			// 1. Add the head node from each list into heap
-			Queue<ListNode> minHeap = new PriorityQueue<>(lists.size(), new Comparator<ListNode>() {
-				// return <0 : already sorted, no swap
-				// return >0 : need to swap
-				public int compare(ListNode left, ListNode right) {
-					// ascending left - right
-					// descending right - left
-					return left.val - right.val;
-				}
-			});
-			//The above code can be replaced by one line with Lambda expressions (Java 8)
-			//Queue<ListNode> minHeap = new PriorityQueue<>((left,right) -> left.val - right.val);
-			for (int i = 0; i < lists.size(); i++) {
-				if (lists.get(i) != null) {
-					minHeap.offer(lists.get(i));
+			Queue<ListNode> minHeap = new PriorityQueue<>((a, b) -> a.val - b.val);
+			//Add the head node from each list into heap
+			for (int i = 0; i < lists.length; i++) {
+				if (lists[i] != null) {
+					minHeap.offer(lists[i]);
 				}
 			}
 			ListNode dummyNode = new ListNode(0);
@@ -57,28 +46,19 @@ public class MergeKSortedLists {
 				ListNode minNode = minHeap.poll();
 				pointer.next = minNode;
 				pointer = pointer.next;
-				if (minHeap.isEmpty()) {// For the last list, it can end earlier.
+				if (minHeap.isEmpty())// For the last list, it can end earlier.
 					break;
-				}
+				
 				// move to the next node on that List whose head was removed.
-				if (minNode.next != null) {
+				if (minNode.next != null) 
 					minHeap.offer(minNode.next);
-				}
 			}
 			return dummyNode.next;
-
 		}
-
 	}
 
 	// Solution 2: Divide & Conquer
 	class Solution2 {
-
-		/**
-		 * @param lists:
-		 *            a list of ListNode
-		 * @return: The head of one sorted list.
-		 */
 		public ListNode mergeKLists(List<ListNode> lists) {
 			if (lists.size() == 0) {
 				return null;
@@ -123,11 +103,6 @@ public class MergeKSortedLists {
 
 	// Solution 3: merge two by two
 	public class Solution3 {
-		/**
-		 * @param lists:
-		 *            a list of ListNode
-		 * @return: The head of one sorted list.
-		 */
 		public ListNode mergeKLists(List<ListNode> lists) {
 			if (lists == null || lists.size() == 0) {
 				return null;
@@ -187,7 +162,6 @@ public class MergeKSortedLists {
 class ListNode {
 	int val;
 	ListNode next;
-
 	ListNode(int x) {
 		val = x;
 	}

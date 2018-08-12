@@ -38,9 +38,7 @@ public class ClosestBinarySearchTreeValue {
 	/**
 	 * Iterative Solution
 	 * 复杂度  时间 O(logN) 空间 O(H)
-
-		思路:记录一个最近的值，然后沿着二叉搜索的路径一路比较下去，并更新这个最近值就行了。因为我们知道离目标数最接近的数肯定在二叉搜索的路径上。
-
+	      思路:记录一个最近的值，然后沿着二叉搜索的路径一路比较下去，并更新这个最近值就行了。因为我们知道离目标数最接近的数肯定在二叉搜索的路径上。
 	 */
 	public class IterativeSolution {
 		public int closestValue(TreeNode root, double target) {

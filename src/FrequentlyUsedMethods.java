@@ -27,6 +27,7 @@ public class FrequentlyUsedMethods {
 		System.out.println(a >= 'a' && a <= 'z'); // result:true
 		
 		System.out.println(Character.isLetter(a)); // result:true
+		System.out.println(Character.isDigit(ch));
 		System.out.println(ch >= '0' && ch <= '9'); // result:true //DO NOT USE built-in method like Character.isDigit()
 		
 		char upper = Character.toUpperCase(a); // convert to upper case.
@@ -114,7 +115,7 @@ public class FrequentlyUsedMethods {
         Stack<Integer> stack = new Stack<>();
         stack.push(8);
         int pop = stack.pop();
-        int peek = stack.peek();
+        //int peek = stack.peek();
         boolean empty = stack.isEmpty();
         
         
@@ -135,7 +136,7 @@ public class FrequentlyUsedMethods {
 	
 	
 	public static void main(String[] args) throws Exception {
-		//frequentlyUsedMethods();
+		frequentlyUsedMethods();
 
 		//testingDate();
 		byte b1 = 16;

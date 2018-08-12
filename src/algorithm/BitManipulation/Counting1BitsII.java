@@ -39,7 +39,6 @@ Can you do it like a boss? Do it without using any built-in function like __buil
  */
 public class Counting1BitsII {
 	
-	
 	/**
 	 * 
 	 * Solution#2     一个数 乘以2 就是把它的二进制全部左移一位，也就是说 1的个数是相等的，如果是奇数，只需要额外加1.

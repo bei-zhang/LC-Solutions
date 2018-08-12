@@ -41,7 +41,7 @@ public class TwoSum {
 		//Using HashMap to store remaining sum is the key.
 		Map<Integer, Integer> map = new HashMap<>();
 		for (int i = 0; i < nums.length; i++) {
-			if (map.get(nums[i]) != null) {
+			if (map.containsKey(nums[i])) {
 				return new int[] { map.get(nums[i]), i };
 			}
 			map.put(target - nums[i], i);

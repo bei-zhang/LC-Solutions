@@ -1,7 +1,6 @@
 package dataStructure.Tree.BinaryTree;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Queue;
@@ -59,10 +58,6 @@ public class BinaryTreeLevelOrderTraversal {
     
     // Solution# 2:  DFS  (recursion)
     public class DFSSolution {
-        /**
-         * @param root: The root of binary tree.
-         * @return: Level order a list of lists of integer
-         */
         public List<List<Integer>>  levelOrder(TreeNode root) {
         	List<List<Integer>>  results = new ArrayList<>();
             

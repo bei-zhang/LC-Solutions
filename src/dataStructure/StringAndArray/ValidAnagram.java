@@ -6,8 +6,8 @@ package dataStructure.StringAndArray;
  * https://leetcode.com/problems/valid-anagram
  *
  *两种方法
- *1) sort            O(nlogn) time
- *2) HashMap         O(n) time
+ *1) sort         O(nlogn) time
+ *2) Hash         O(n) time        (recommended, simple and best)
  * 
  *这不算一道难题，核心点就在于使用哈希表映射，我们还是用一个数组来代替哈希表，
  *使用类似方法的题目有Minimum Window Substring 最小窗口子串，Isomorphic Strings 同构字符串，
@@ -39,8 +39,8 @@ public class ValidAnagram {
         }
         
         for(int i=0; i<t.length();i++){
-            char c = t.charAt(i);
-            if(count[c] >=1){
+            int c = t.charAt(i);
+            if(count[c] > 0){
                 count[c]--;
             }else{
                 return false;

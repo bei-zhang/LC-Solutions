@@ -1,4 +1,4 @@
-package algorithm.BreadthFirstSearch;
+package dataStructure.Graph;
 
 import java.util.ArrayList;
 import java.util.LinkedList;

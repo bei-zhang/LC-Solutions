@@ -1,4 +1,4 @@
-package dataStructure.Hash;
+package algorithm.quicksort;
 
 import java.util.PriorityQueue;
 

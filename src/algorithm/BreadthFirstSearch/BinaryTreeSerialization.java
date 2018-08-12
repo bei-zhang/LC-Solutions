@@ -42,12 +42,9 @@ print in level by level:
 public class BinaryTreeSerialization{
 
 	class Solution {
-		// Encodes a tree to a single string.
+		// Serialize a tree into a single string.
 	    public String serialize(TreeNode root) {
-	        if(root ==null){
-	            return "{}";
-	        }
-	        
+	        if(root ==null)  return "{}";
 	        //BFS
 	        Queue<TreeNode> queue = new LinkedList<>();
 	        queue.offer(root);
@@ -72,11 +69,9 @@ public class BinaryTreeSerialization{
 	        return sb.toString();
 	    }
 	    
-	    // Decodes your encoded data to tree.
+	    // Deserialize your encoded string to a tree
 	    public TreeNode deserialize(String data) {
-	        if(data == null || "{}".equals(data) ){
-	            return null;
-	        }
+	        if(data == null || "{}".equals(data) )  return null;
 	        String[] values = data.substring(1,data.length()-1).split(",");
 	        TreeNode root = new TreeNode(Integer.parseInt(values[0]));
 	        List<TreeNode> list = new ArrayList<>();
@@ -95,15 +90,12 @@ public class BinaryTreeSerialization{
 	                list.add(node);
 	            }
 	            
-	            if(!isLeftChild){
-	                index++;
-	            }
+	            if(!isLeftChild)  index++;
 	            
 	            isLeftChild =!isLeftChild;
 	        }
 	        
 	        return root;
-	        
 	    }
 	}	
 }
